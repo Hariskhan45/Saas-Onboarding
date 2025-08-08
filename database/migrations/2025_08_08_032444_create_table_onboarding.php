@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('onboarding', function (Blueprint $table) {
+        Schema::create('table_onboarding', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
-            $table->string('status')->default('pending'); // pending, in_progress, completed
+            $table->string('status')->default('pending');
             $table->dateTime('started_at')->nullable();
             $table->dateTime('completed_at')->nullable();
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('onboarding');
+        Schema::dropIfExists('table_onboarding');
     }
 };
