@@ -4,14 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OnboardingSession extends Model
+class Onboarding extends Model
 {
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'user_id',
+        'status',
+        'step',
+        'data',
+    ];
 
     /**
      * The attributes that should be cast to native types.
@@ -21,5 +26,6 @@ class OnboardingSession extends Model
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
+        'data' => 'array',
     ];
 }
