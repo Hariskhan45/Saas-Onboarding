@@ -4,28 +4,33 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Onboarding extends Model
+class onboarding extends Model
 {
+    use \Illuminate\Database\Eloquent\Factories\HasFactory;
+
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array<string>
      */
     protected $fillable = [
-        'user_id',
+        'name',
+        'description',
         'status',
-        'step',
-        'data',
+        'started_at',
+        'completed_at',
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * The attributes that should be cast.
      *
-     * @var array
+     * @return array<string, string>
      */
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'data' => 'array',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'started_at' => 'datetime',
+            'completed_at' => 'datetime',
+        ];
+    }
 }
